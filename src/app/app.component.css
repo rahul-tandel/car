@@ -54,3 +54,13 @@
   border-color: #dc3545;
   color: #fff;
 }
+
+.list-group .list-group-item {
+  border: none;
+  background: transparent;
+  color: #fff;
+}
+
+.footer-color {
+  background-color: #781922fc;
+}
