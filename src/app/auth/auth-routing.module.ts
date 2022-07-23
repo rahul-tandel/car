@@ -13,7 +13,7 @@ const routes: Routes = [
   {
     path: 'user',
     component: UserProfileComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'form',

@@ -17,10 +17,10 @@ export class AuthComponent implements OnInit {
   ) {}
 
   userData: any = {
-    name: '',
+    // name: '',
     username: '',
     password: '',
-    profilePic: '',
+    // profilePic: '',
   };
 
   ngOnInit(): void {
@@ -32,11 +32,18 @@ export class AuthComponent implements OnInit {
 
   submit() {
     this.userData.profilePic = 'asdsadsadasdasdasd';
-    console.log(this.userData);
-    this.authService.createUser(this.userData).subscribe((res) => {
-      this.storeStore.setUserData = res;
-      // this.router.navigateByUrl('/home');
+    // console.log(this.userData);
+    // this.authService.createUser(this.userData).subscribe((res) => {
+    //   this.storeStore.setUserData = res;
+    //   // this.router.navigateByUrl('/home');
+    //   this.router.navigate(['/user']);
+    // });
+    this.authService.loginUser(this.userData).subscribe((res) => {
+      console.log(res);
+      this.storeStore.setUserData = res?.user;
+
       this.router.navigate(['/user']);
     });
+    this.authService;
   }
 }
