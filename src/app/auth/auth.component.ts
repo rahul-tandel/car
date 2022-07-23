@@ -28,6 +28,10 @@ export class AuthComponent implements OnInit {
     // if (this.storeStore.user.logged) {
     //   console.log('user');
     // }
+    console.log(this.storeStore.getUserData);
+    if (this.storeStore.getUserData) {
+      this.router.navigate(['user']);
+    }
   }
 
   submit() {
