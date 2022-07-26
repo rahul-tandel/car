@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg" [hidden]="hide">
+  <div class="container">
+    <h1 class="navbar-brand fw-bolder fs-3">Hangout</h1>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-4">
+        <li class="nav-item">
+          <a href="#" class="nav-link set-size"> HELP </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link set-size ms-3-lg"> What is New? </a>
+        </li>
+        <li class="nav-item d-sm-block d-md-none">
+          <a href="#" class="nav-link set-size ms-3-lg"> Account</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto d-none d-lg-flex">
+        <li class="nav-item">
+          <a href="" class="nav-link fs-5 ms-1"
+            ><i class="fa-solid fa-bolt"></i
+          ></a>
+        </li>
+        <li class="nav-item">
+          <a href="" class="nav-link fs-5 ms-1"
+            ><i class="fa-solid fa-square"></i
+          ></a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/home" class="nav-link fs-5 ms-1"
+            ><i class="fa-solid fa-house"></i
+          ></a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/auth" class="nav-link fs-5 ms-1"
+            ><i class="fa-solid fa-circle-user"></i
+          ></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

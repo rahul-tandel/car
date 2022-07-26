@@ -9,6 +9,8 @@ import { CardComponent } from './card/card.component';
 import { HomeComponent } from './home/home.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { FormsComponent } from './user-profile/forms/forms.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ProfileHomeComponent } from './user-profile/profile-home/profile-home.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { FormsComponent } from './user-profile/forms/forms.component';
     HomeComponent,
     UserProfileComponent,
     FormsComponent,
+    NavbarComponent,
+    ProfileHomeComponent,
   ],
   imports: [
     BrowserModule,

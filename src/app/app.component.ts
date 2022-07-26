@@ -10,4 +10,6 @@ export class AppComponent {
   constructor(private store: StoreService) {}
 
   title = 'frontend';
+
+  hide: boolean = this.store.hide;
 }

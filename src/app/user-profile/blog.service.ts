@@ -17,6 +17,10 @@ export class BlogService {
     return this.http.get(`http://localhost:3000/api/user/blog/${id}`);
   }
 
+  getSingleBlog(id: string): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/user/blog/u/${id}`);
+  }
+
   postBlog(data: any): Observable<any> {
     return this.http.post('http://localhost:3000/api/user/blog', data);
   }

@@ -20,11 +20,12 @@ export class UserProfileComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    this.blogService.getBlog(this.store.getUserData._id).subscribe((res) => {
-      console.log(res);
-      this.blogs = res;
-    });
-    this.user = this.store.getUserData;
+    // console.log(this.store.getUserData);
+    // this.blogService.getBlog(this.store.getUserData._id).subscribe((res) => {
+    //   console.log(res);
+    //   this.blogs = res;
+    // });
+    // this.user = this.store.getUserData;
     // console.log(this.store.getUserData.name);
   }
 }

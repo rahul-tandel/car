@@ -1,20 +1,5 @@
-<p>Welcome {{ user?.name }} User</p>
-<button class="btn btn-success" routerLink="form">Create a Blog</button>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let a of blogs">
-      <td>{{ a.title }}</td>
-      <td><button class="btn btn-info">Edit</button></td>
-      <td><button class="btn btn-danger">Delete</button></td>
-    </tr>
-  </tbody>
-</table>
-
-<router-outlet></router-outlet>
+<div class="bg-light">
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

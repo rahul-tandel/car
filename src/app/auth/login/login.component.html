@@ -1,0 +1,45 @@
+<div class="container">
+  <h2 class="text-center mb-4">{{ type }}</h2>
+  <form class="d-flex justify-content-center align-items-center flex-column">
+    <div *ngIf="type === 'Sign up'" class="mb-3 w-50">
+      <label for="name" class="form-label">Name</label>
+      <input
+        type="text"
+        name="name"
+        class="form-control"
+        placeholder="eg. Ramesh"
+        [(ngModel)]="userData.name"
+      />
+    </div>
+    <div class="mb-3 w-50">
+      <label for="username" class="form-label">Username</label>
+      <input
+        type="text"
+        name="username"
+        class="form-control"
+        placeholder="eg. ramesh@gmail.com"
+        [(ngModel)]="userData.username"
+      />
+    </div>
+    <div class="mb-3 w-50">
+      <label for="password" class="form-label">Password</label>
+      <input
+        type="password"
+        name="password"
+        class="form-control"
+        [(ngModel)]="userData.password"
+      />
+    </div>
+    <div *ngIf="type === 'Sign up'" class="fs-10">
+      Already Have an Account?
+      <span class="fs-10" (click)="toggleView()">Login</span>
+    </div>
+    <div *ngIf="type === 'Login'" class="fs-10">
+      Don't have an account?
+      <span class="fs-10" (click)="toggleView()">Sign Up</span>
+    </div>
+    <button class="btn btn-dark w-50 mt-4" (click)="submit()">
+      {{ type }}
+    </button>
+  </form>
+</div>

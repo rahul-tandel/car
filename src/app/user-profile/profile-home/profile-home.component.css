@@ -1,0 +1,41 @@
+.banner-img {
+  height: 250px;
+  object-fit: cover;
+}
+.profile-banner {
+  bottom: -40px;
+  left: 40px;
+}
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+}
+.resolution {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    360deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(48, 48, 48, 1) 34%,
+    rgba(69, 69, 69, 1) 100%
+  );
+  opacity: 0.5;
+}
+.pos-ele {
+  right: -10px;
+  top: -10px;
+}
+
+@media screen and (max-width: 480px) {
+  .profile-banner {
+    bottom: 10px;
+    left: -20px;
+    font-size: 12px;
+  }
+  .profile-pic {
+    height: 70px;
+    width: 70px;
+  }
+}
