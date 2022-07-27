@@ -1,5 +1,9 @@
-<div class="vh-100">
-  <form action="">
+<div
+  class="container-fluid vh-100 d-flex align-items-center justify-content-center"
+>
+  <form action="" class="w-75 h-75">
+    <h1 *ngIf="!id">Create Blog</h1>
+    <h1 *ngIf="id">Edit Blog</h1>
     <div class="mb-3">
       <label for="text" class="form-label">Title</label>
       <input
