@@ -11,6 +11,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { FormsComponent } from './user-profile/forms/forms.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileHomeComponent } from './user-profile/profile-home/profile-home.component';
+import { DataTablesModule } from 'angular-datatables';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -26,8 +28,10 @@ import { ProfileHomeComponent } from './user-profile/profile-home/profile-home.c
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    DataTablesModule,
     AuthModule,
     AppRoutingModule,
+    Ng2SearchPipeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

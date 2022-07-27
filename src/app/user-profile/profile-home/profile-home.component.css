@@ -28,6 +28,10 @@
   top: -10px;
 }
 
+.z {
+  z-index: 10;
+}
+
 @media screen and (max-width: 480px) {
   .profile-banner {
     bottom: 10px;
