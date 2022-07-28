@@ -14,6 +14,15 @@
       />
     </div>
     <div class="mb-3">
+      <label for="text" class="form-label">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        name="title"
+        [(ngModel)]="blog.summary"
+      />
+    </div>
+    <div class="mb-3">
       <label for="content" class="form-label">Content</label>
       <textarea
         class="form-control"
@@ -22,6 +31,16 @@
         [(ngModel)]="blog.content"
         name="content"
       ></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="image" class="form-label">Upload Profile Pic</label>
+      <input
+        type="file"
+        id="image"
+        name="profilePic"
+        class="form-control"
+        (change)="changeProfile($event)"
+      />
     </div>
     <button class="btn btn-primary" (click)="submit()">Submit</button>
   </form>

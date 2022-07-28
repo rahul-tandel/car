@@ -13,6 +13,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileHomeComponent } from './user-profile/profile-home/profile-home.component';
 import { DataTablesModule } from 'angular-datatables';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { BlogComponent } from './user-profile/blog/blog.component';
+import { UserSettingComponent } from './user-profile/user-setting/user-setting.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     FormsComponent,
     NavbarComponent,
     ProfileHomeComponent,
+    BlogComponent,
+    UserSettingComponent,
   ],
   imports: [
     BrowserModule,

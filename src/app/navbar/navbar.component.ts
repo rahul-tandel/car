@@ -12,11 +12,14 @@ export class NavbarComponent implements OnInit {
     this.sub = this.store.getHide().subscribe((h) => {
       // console.log(h);
       this.hide = h;
+      this.showSettings = true;
+      this.id = this.store.getUserData._id;
     });
   }
 
   hide: boolean = false;
-  va = this.hide;
+  showSettings = false;
+  id = '';
 
   private sub: Subscription;
 

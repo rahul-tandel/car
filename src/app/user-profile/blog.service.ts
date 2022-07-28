@@ -24,4 +24,12 @@ export class BlogService {
   postBlog(data: any): Observable<any> {
     return this.http.post('http://localhost:3000/api/user/blog', data);
   }
+
+  editBlog(data: any, id: any): Observable<any> {
+    return this.http.put(`http://localhost:3000/api/user/blog/${id}`, data);
+  }
+
+  deleteBlog(id: any): Observable<any> {
+    return this.http.delete(`http://localhost:3000/api/user/blog/${id}`);
+  }
 }

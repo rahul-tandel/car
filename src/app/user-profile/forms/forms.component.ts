@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StoreService } from 'src/app/store/store.service';
 import { BlogService } from '../blog.service';
 import { ActivatedRoute } from '@angular/router';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-forms',
@@ -15,11 +16,25 @@ export class FormsComponent implements OnInit {
     private router: ActivatedRoute
   ) {}
 
+  imgUrl?: string;
+
   blog = {
     user_id: '',
     title: '',
+    summary: '',
     content: '',
+    blogImage: '',
   };
+
+  clear() {
+    this.blog = {
+      user_id: '',
+      title: '',
+      content: '',
+      blogImage: '',
+      summary: '',
+    };
+  }
 
   id: string | null = '';
 
@@ -36,8 +51,48 @@ export class FormsComponent implements OnInit {
   }
 
   submit() {
-    this.blogService.postBlog(this.blog).subscribe((res) => {
-      this.blogService.getBlog(this.blog.user_id);
-    });
+    if (this.id) {
+      this.blogService.editBlog(this.blog, this.id).subscribe((res) => {
+        swal({
+          title: 'Success',
+          icon: 'success',
+          text: 'Blog Ediit Succesfully',
+          buttons: {
+            confirm: {
+              text: 'Ok',
+              closeModal: true,
+            },
+          },
+        });
+      });
+    } else {
+      console.log(this.blog);
+
+      this.blogService.postBlog(this.blog).subscribe((res) => {
+        console.log(res);
+        swal({
+          title: 'Success',
+          icon: 'success',
+          text: 'Blog Created Succesfully',
+          buttons: {
+            confirm: {
+              text: 'Ok',
+              closeModal: true,
+            },
+          },
+        });
+        // this.blogService.getBlog(this.blog.user_id);
+        this.clear();
+      });
+    }
+  }
+
+  changeProfile(event: any) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.blog.blogImage = reader.result as string;
+    };
+    reader.readAsDataURL(file);
   }
 }

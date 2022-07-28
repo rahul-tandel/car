@@ -2,7 +2,7 @@ import { Component, OnInit, SimpleChanges } from '@angular/core';
 
 import { StoreService } from 'src/app/store/store.service';
 import { BlogService } from '../blog.service';
-
+import swal from 'sweetalert';
 @Component({
   selector: 'app-profile-home',
   templateUrl: './profile-home.component.html',
@@ -55,6 +55,10 @@ export class ProfileHomeComponent implements OnInit {
     }
   }
 
+  checkClick(event: any) {
+    console.log(event);
+  }
+
   ngOnInit(): void {
     // this.currentLastI = this.currentLastI + 5;
     // console.log(this.blogs);
@@ -69,6 +73,23 @@ export class ProfileHomeComponent implements OnInit {
         this.currentStartI + 5,
         this.currentLastI + 5
       );
+    });
+  }
+
+  delete(id: any) {
+    this.blogService.deleteBlog(id).subscribe((res) => {
+      this.ngOnInit();
+      swal({
+        title: 'Success',
+        text: 'Blog Deleted',
+        icon: 'success',
+        buttons: {
+          confirm: {
+            text: 'OK',
+            closeModal: true,
+          },
+        },
+      });
     });
   }
 }
