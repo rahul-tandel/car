@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-lg-4 col-sm-6" *ngFor="let blog of blogs">
+    <div class="position-relative rounded-4 me-3 mb-4 bg-info">
+      <img
+        [src]="blog.profilePic"
+        alt=""
+        class="rounded-circle me-3 mb-4 position-absolute avtar border border-3 border-white ms-4 mt-3"
+      />
+
+      <div class="resolution rounded-4"></div>
+      <img [src]="blog.blogImage" alt="" class="card-image rounded-4" />
+      <div class="card-title w-100">
+        <span class="text-light fw-bold ls-0 fs-4 text-center d-block">{{
+          blog.title
+        }}</span>
+        <p class="text-light fw-light ls-0 set-size text-center fs-10">
+          2H AGO
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

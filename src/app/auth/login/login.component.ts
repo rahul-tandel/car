@@ -30,13 +30,13 @@ export class LoginComponent implements OnInit {
     name: '',
     username: '',
     password: '',
-    profilePic: 'adasdasdasdasdasdas',
   };
 
   submit() {
     if (this.type === 'Login') {
       this.authService.loginUser(this.userData).subscribe((res) => {
-        this.store.setUserData = res.user;
+        console.log(res);
+        this.store.setUserData = res.user[0];
         this.route.navigate(['user/home']);
         this.store.setHide(false);
       });

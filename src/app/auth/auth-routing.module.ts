@@ -16,7 +16,7 @@ const routes: Routes = [
   {
     path: 'user',
     component: UserProfileComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     children: [
       {
         path: 'form',
@@ -35,7 +35,7 @@ const routes: Routes = [
         component: BlogComponent,
       },
       {
-        path: 'settings/:id',
+        path: ':id',
         component: UserSettingComponent,
       },
     ],

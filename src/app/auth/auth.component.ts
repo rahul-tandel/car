@@ -19,7 +19,7 @@ export class AuthComponent implements OnInit {
 
   formType: string = '';
 
-  classes = ['d-block'];
+  classes = ['d-block '];
   Sclasses = ['d-block'];
 
   ngOnInit(): void {

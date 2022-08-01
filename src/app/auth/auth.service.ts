@@ -20,4 +20,16 @@ export class AuthService {
   loginUser(data: any): Observable<any> {
     return this.http.post<any>('http://localhost:3000/api/user/login', data);
   }
+
+  getUser(id: any): Observable<any> {
+    return this.http.get<any>(`http://localhost:3000/api/user/${id}`);
+  }
+
+  updateUser(id: any, data: any): Observable<any> {
+    return this.http.put(`http://localhost:3000/api/user/${id}`, data);
+  }
+
+  getAllUser(): Observable<any> {
+    return this.http.get('http://localhost:3000/api/user');
+  }
 }

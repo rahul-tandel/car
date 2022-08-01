@@ -32,4 +32,8 @@ export class BlogService {
   deleteBlog(id: any): Observable<any> {
     return this.http.delete(`http://localhost:3000/api/user/blog/${id}`);
   }
+
+  getAllBlogs(): Observable<any> {
+    return this.http.get('http://localhost:3000/api/user/blog/card/data');
+  }
 }

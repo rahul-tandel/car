@@ -8,15 +8,11 @@
       >
         <i class="fa-solid fa-plus"></i>
       </div>
-      <img
-        src="https://source.unsplash.com/random"
-        alt=""
-        class="banner-img rounded-3 w-100"
-      />
+      <img [src]="user.banner" alt="" class="banner-img rounded-3 w-100" />
     </div>
     <div class="position-absolute profile-banner d-flex align-items-start">
       <img
-        src="https://source.unsplash.com/random"
+        [src]="user.profilePic"
         alt=""
         class="rounded-circle profile-pic border border-5"
       />
@@ -60,7 +56,7 @@
           class="list-group-item border-0 d-flex justify-content-between align-items-center mb-1"
           [routerLink]="'/user/blog/' + a._id"
         >
-          <h3>{{ a.title }}</h3>
+          <h3 class="fs-6 fw-semibold">{{ a.title }}</h3>
           <div>
             <button
               class="btn btn-info text-white z"

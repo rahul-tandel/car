@@ -28,7 +28,7 @@ export class FormsComponent implements OnInit {
 
   clear() {
     this.blog = {
-      user_id: '',
+      user_id: this.blog.user_id,
       title: '',
       content: '',
       blogImage: '',

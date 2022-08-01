@@ -20,7 +20,8 @@ export class StoreService {
   }
 
   set setUserData(res: any) {
-    this.user = { ...this.user, logged: true, ...res };
+    console.log(res);
+    this.user = { logged: true, ...res };
     // console.log(this.user);
     // console.log(this.user);
   }
