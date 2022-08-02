@@ -13,7 +13,7 @@ export class BlogService {
     .set('Access-Control-Allow-Origin', '*');
 
   getBlog(id: string): Observable<any> {
-    console.log(id);
+    // console.log(id);
     return this.http.get(`http://localhost:3000/api/user/blog/${id}`);
   }
 

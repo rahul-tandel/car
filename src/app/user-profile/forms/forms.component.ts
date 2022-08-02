@@ -3,6 +3,7 @@ import { StoreService } from 'src/app/store/store.service';
 import { BlogService } from '../blog.service';
 import { ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert';
+import { VirtualTimeScheduler } from 'rxjs';
 
 @Component({
   selector: 'app-forms',
@@ -18,12 +19,15 @@ export class FormsComponent implements OnInit {
 
   imgUrl?: string;
 
+  name = 'nma.jpg';
+
   blog = {
     user_id: '',
     title: '',
     summary: '',
     content: '',
     blogImage: '',
+    imageName: '',
   };
 
   clear() {
@@ -33,6 +37,7 @@ export class FormsComponent implements OnInit {
       content: '',
       blogImage: '',
       summary: '',
+      imageName: '',
     };
   }
 
@@ -44,13 +49,14 @@ export class FormsComponent implements OnInit {
     if (this.id) {
       this.blogService.getSingleBlog(this.id).subscribe((res) => {
         // console.log(res);
-        this.blog = res;
+        this.blog = { ...res, imageName: 'image.jpg' };
       });
     }
     // if(this.blog.user_id)
   }
 
   submit() {
+    // console.log(this.blog);
     if (this.id) {
       this.blogService.editBlog(this.blog, this.id).subscribe((res) => {
         swal({
@@ -66,10 +72,10 @@ export class FormsComponent implements OnInit {
         });
       });
     } else {
-      console.log(this.blog);
+      // console.log(this.blog);
 
       this.blogService.postBlog(this.blog).subscribe((res) => {
-        console.log(res);
+        // console.log(res);
         swal({
           title: 'Success',
           icon: 'success',
@@ -88,9 +94,11 @@ export class FormsComponent implements OnInit {
   }
 
   changeProfile(event: any) {
+    // console.dir(event.target.files[0].name);
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.onload = () => {
+      this.blog.imageName = file.name;
       this.blog.blogImage = reader.result as string;
     };
     reader.readAsDataURL(file);

@@ -17,7 +17,7 @@ export class BlogComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id');
     if (this.id) {
       this.blogService.getSingleBlog(this.id).subscribe((res) => {
-        console.log(res);
+        // console.log(res);
         this.blog = res;
       });
     }

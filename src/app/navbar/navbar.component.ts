@@ -13,7 +13,7 @@ export class NavbarComponent implements OnInit {
       // console.log(h);
       this.hide = h;
       this.showSettings = true;
-      this.id = this.store.getUserData._id;
+      this.id = this.store.getUserData?._id;
     });
   }
 

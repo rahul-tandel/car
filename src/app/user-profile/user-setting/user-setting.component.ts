@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StoreService } from 'src/app/store/store.service';
 import { AuthService } from 'src/app/auth/auth.service';
 import { ActivatedRoute } from '@angular/router';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-user-setting',
@@ -27,7 +28,7 @@ export class UserSettingComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = { ...this.user, ...this.store.getUserData };
-    console.log(this.store.getUserData);
+    // console.log(this.store.getUserData);
   }
 
   fileUpload(event: any) {
@@ -46,6 +47,18 @@ export class UserSettingComponent implements OnInit {
   onSave() {
     this.authService.updateUser(this.user._id, this.user).subscribe((res) => {
       this.store.setUserData = res;
+      swal({
+        title: 'Success',
+        icon: 'success',
+        text: 'Blog Created Succesfully',
+        buttons: {
+          confirm: {
+            text: 'Ok',
+            closeModal: true,
+          },
+        },
+      });
+
       // console.log(res);
     });
   }

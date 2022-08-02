@@ -35,14 +35,13 @@ export class LoginComponent implements OnInit {
   submit() {
     if (this.type === 'Login') {
       this.authService.loginUser(this.userData).subscribe((res) => {
-        console.log(res);
+        // console.log(res);
         this.store.setUserData = res.user[0];
         this.route.navigate(['user/home']);
         this.store.setHide(false);
       });
     } else {
       this.authService.createUser(this.userData).subscribe((res) => {
-        console.log(res);
         this.store.setUserData = res;
         this.route.navigate(['user/home']);
         this.store.setHide(false);
@@ -50,5 +49,16 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // if (localStorage.getItem('token')) {
+    //   this.authService
+    //     .getUser(localStorage.getItem('token'))
+    //     .subscribe((res) => {
+    //       this.store.setUserData = res[0];
+    //       this.route.navigate(['user/home']);
+    //       // console.log(res);
+    //       // this.store.setHide(false);
+    //     });
+    // }
+  }
 }

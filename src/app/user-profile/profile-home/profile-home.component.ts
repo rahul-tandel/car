@@ -3,19 +3,25 @@ import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { StoreService } from 'src/app/store/store.service';
 import { BlogService } from '../blog.service';
 import swal from 'sweetalert';
+import { AuthService } from 'src/app/auth/auth.service';
+import { Router } from '@angular/router';
+import { filter } from 'rxjs';
 @Component({
   selector: 'app-profile-home',
   templateUrl: './profile-home.component.html',
   styleUrls: ['./profile-home.component.css'],
 })
 export class ProfileHomeComponent implements OnInit {
-  constructor(private store: StoreService, private blogService: BlogService) {}
+  constructor(
+    private store: StoreService,
+    private blogService: BlogService,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   search: string = '';
-
   blogs: any = [];
   user: any;
-
   page = 1;
 
   currentLastI = 5;
@@ -55,18 +61,26 @@ export class ProfileHomeComponent implements OnInit {
     }
   }
 
-  checkClick(event: any) {
-    console.log(event);
+  logOut() {
+    if (localStorage.getItem('token')) {
+      localStorage.removeItem('token');
+    }
+    this.router.navigate(['/auth']);
   }
 
   ngOnInit(): void {
     // this.currentLastI = this.currentLastI + 5;
     // console.log(this.blogs);
     // console.log(this.store.getUserData);
+    // console.log('ASdsd');
     this.store.setHide(false);
     this.user = this.store.getUserData;
+    // this.store.getUserData().subscribe((res) => {
+    //   this.user = res[0];
+    // });
+    console.log(this.user);
     this.blogService.getBlog(this.user._id).subscribe((res) => {
-      console.log(res);
+      // console.log(res);
       this.blogs = res;
       this.current = this.blogs.slice(this.currentStartI, this.currentLastI);
       this.next = this.blogs.slice(
