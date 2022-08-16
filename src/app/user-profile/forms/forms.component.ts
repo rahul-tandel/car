@@ -44,7 +44,7 @@ export class FormsComponent implements OnInit {
   id: string | null = '';
 
   ngOnInit(): void {
-    this.blog.user_id = this.store.getUserData._id;
+    this.blog.user_id = this.store.getUserData.id;
     this.id = this.router.snapshot.paramMap.get('id');
     if (this.id) {
       this.blogService.getSingleBlog(this.id).subscribe((res) => {

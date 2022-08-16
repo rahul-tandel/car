@@ -31,9 +31,9 @@ export class AuthComponent implements OnInit {
     // }
     // console.log(this.storeStore.getUserData);
     this.storeStore.setHide(true);
-    // if (this.storeStore.getUserData) {
-    //   this.router.navigate(['user/home']);
-    // }
+    if (this.storeStore.getUserData) {
+      this.router.navigate(['user/home']);
+    }
   }
 
   toggle(data: any) {

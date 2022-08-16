@@ -28,6 +28,7 @@ export class UserSettingComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = { ...this.user, ...this.store.getUserData };
+    // console.log(this.user.profilePic.length);
     // console.log(this.store.getUserData);
   }
 
@@ -37,6 +38,7 @@ export class UserSettingComponent implements OnInit {
     reader.onload = () => {
       if (event.target.name === 'profilePic') {
         this.user.profilePic = reader.result as string;
+        // this.user.profilePic = this.user.profilePic.slice(0, 25702);
       } else {
         this.user.banner = reader.result as string;
       }
@@ -45,7 +47,9 @@ export class UserSettingComponent implements OnInit {
   }
 
   onSave() {
-    this.authService.updateUser(this.user._id, this.user).subscribe((res) => {
+    // console.log(this.user.profilePic.length);
+    this.authService.updateUser(this.user.id, this.user).subscribe((res) => {
+      // console.log(res);
       this.store.setUserData = res;
       swal({
         title: 'Success',

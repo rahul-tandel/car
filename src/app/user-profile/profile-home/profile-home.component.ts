@@ -83,8 +83,8 @@ export class ProfileHomeComponent implements OnInit {
     // this.store.getUserData().subscribe((res) => {
     //   this.user = res[0];
     // });
-    console.log(this.user);
-    this.blogService.getBlog(this.user._id).subscribe((res) => {
+    // console.log(this.user);
+    this.blogService.getBlog(this.user.id).subscribe((res) => {
       // console.log(res);
       this.blogs = res;
       this.current = this.blogs.slice(this.currentStartI, this.currentLastI);
