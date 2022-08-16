@@ -16,6 +16,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { BlogComponent } from './user-profile/blog/blog.component';
 import { UserSettingComponent } from './user-profile/user-setting/user-setting.component';
 import { CategoryComponent } from './home/category/category.component';
+import { AuthService } from './auth/auth.service';
 
 @NgModule({
   declarations: [

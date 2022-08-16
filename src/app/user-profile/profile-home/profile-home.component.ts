@@ -17,7 +17,12 @@ export class ProfileHomeComponent implements OnInit {
     private blogService: BlogService,
     private authService: AuthService,
     private router: Router
-  ) {}
+  ) {
+    this.store.getUser().subscribe((res) => {
+      // console.log(res);
+      this.user = res;
+    });
+  }
 
   search: string = '';
   blogs: any = [];
@@ -74,7 +79,7 @@ export class ProfileHomeComponent implements OnInit {
     // console.log(this.store.getUserData);
     // console.log('ASdsd');
     this.store.setHide(false);
-    this.user = this.store.getUserData;
+    // this.user = this.store.getUserData;
     // this.store.getUserData().subscribe((res) => {
     //   this.user = res[0];
     // });
